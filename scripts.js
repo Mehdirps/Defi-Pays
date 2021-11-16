@@ -31,18 +31,24 @@ fetch('https://restcountries.com/v3.1/all', {})
                         if (json.status = 404) {
                             capital.textContent = "Ce pays n'existe pas";
                         }
+
                         if (!jsonObj.capital) {
                             capital.textContent = "Ce pays n'a pas de capitale"
+                        }else{
+                            capital.textContent = "Capital: " + jsonObj.capital[0];
                         }
-                        capital.textContent = "Capital: " + jsonObj.capital[0];
+
                         if (!jsonObj.population) {
-                            capital.textContent = "Ce pays n'a pas de population"
+                            population.textContent = "Ce pays n'a pas de population"
+                        }else{
+                            population.textContent = "Population: " + jsonObj.population;
                         }
-                        population.textContent = "Population: " + jsonObj.population;
+
                         if (!jsonObj.flag) {
+                            drapeau.textContent = "Ce pays n'a pas de drapeau"
+                        }else{
+                            drapeau.textContent = "Flag: " + jsonObj.flag;
                         }
-                        capital.textContent = "Ce pays n'a pas de drapeau"
-                        drapeau.textContent = "Flag: " + jsonObj.flag;
                     })
                     .catch(error => console.log);
             }
